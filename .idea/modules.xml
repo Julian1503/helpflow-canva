@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HelpCenter.iml" filepath="$PROJECT_DIR$/HelpCenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/helpflow_ai/helpflow_ai.iml" filepath="$PROJECT_DIR$/helpflow_ai/helpflow_ai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/helpflow_ai/ai-tagging.iml" filepath="$PROJECT_DIR$/helpflow_ai/ai-tagging.iml" />
+      <module fileurl="file://$PROJECT_DIR$/helpflow-canva.iml" filepath="$PROJECT_DIR$/helpflow-canva.iml" />
     </modules>
   </component>
 </project>
