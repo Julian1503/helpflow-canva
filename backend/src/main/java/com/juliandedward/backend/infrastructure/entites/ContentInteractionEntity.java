@@ -1,9 +1,6 @@
 package com.juliandedward.backend.infrastructure.entites;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,11 +20,14 @@ public class ContentInteractionEntity {
     @Column(nullable = false)
     private UUID userId;
 
-    @Column(nullable = false)
-    private UUID contentId;
+
 
     @Column(nullable = false)
     private String type;
 
     private LocalDateTime timestamp;
+
+    @ManyToOne
+    @JoinColumn(name = "content_id")
+    private ContentEntity content_interaction;
 }

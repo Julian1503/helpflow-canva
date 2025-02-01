@@ -1,9 +1,6 @@
 package com.juliandedward.backend.infrastructure.entites;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +18,9 @@ public class ContentMetadataEntity {
     private String description;
     private String type;
 
-    @Column(nullable = false)
-    private UUID contentId;
+
+
+    @ManyToOne
+    @JoinColumn(name = "content_id")
+    private ContentEntity content_metadata;
 }
