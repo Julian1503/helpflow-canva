@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.swing.text.AbstractDocument;
 import java.util.Collection;
 
 @RestController
@@ -21,7 +22,7 @@ public class ContentController {
 
     private final UseCase<SearchContentQuery, Collection<ContentModel>> searchContentUseCase;
 
-    public ContentController(SearchContentUseCase searchContentUseCase) {
+    public ContentController(UseCase<SearchContentQuery, Collection<ContentModel>> searchContentUseCase) {
         this.searchContentUseCase = searchContentUseCase;
     }
 
