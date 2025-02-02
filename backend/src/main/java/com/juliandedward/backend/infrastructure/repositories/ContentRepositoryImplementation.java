@@ -56,4 +56,27 @@ public class ContentRepositoryImplementation implements ContentRepository {
                 .toList();
     }
 
+    @Override
+    public Collection<ContentModel> findRelatedContent(UUID contentId, int limit) {
+        String queryStr = """
+            SELECT DISTINCT c
+            FROM ContentEntity c
+            JOIN TagEntity t ON c.id = t.content_tag.id
+            WHERE t.name IN (
+                SELECT t2.name
+                FROM TagEntity t2
+                WHERE t2.content_tag.id = :contentId
+            )
+            AND c.id != :contentId
+            ORDER BY c.interactions.size DESC
+        """;
+
+        TypedQuery<ContentEntity> query = entityManager.createQuery(queryStr, ContentEntity.class);
+        query.setParameter("contentId", contentId);
+        query.setMaxResults(limit);
+
+        return query.getResultList().stream()
+                .map(contentMapper::toSource)
+                .toList();
+    }
 }

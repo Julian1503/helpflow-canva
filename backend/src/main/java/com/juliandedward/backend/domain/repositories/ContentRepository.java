@@ -7,4 +7,5 @@ import java.util.UUID;
 
 public interface ContentRepository {
     Collection<ContentModel> searchByFilters(String title, String type, Collection<String> tags);
+    Collection<ContentModel> findRelatedContent(UUID contentId, int limit);
 }
